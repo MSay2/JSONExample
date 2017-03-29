@@ -19,6 +19,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import android.util.Log;
+import android.widget.Toast;
 
 public class MainActivity extends Activity 
 {
@@ -38,7 +39,7 @@ public class MainActivity extends Activity
 		recycler.setLayoutManager(new LinearLayoutManager(this));
 		recycler.setItemAnimator(new DefaultItemAnimator());
 		
-		String URL_JSON = "";
+		String URL_JSON = "https://raw.githubusercontent.com/msay2/JSONExample/master/example%20json/item_json.json";
 		new DownloadTask().execute(URL_JSON);
     }
 	
@@ -47,7 +48,7 @@ public class MainActivity extends Activity
         @Override
         protected void onPreExecute() 
 		{
-            //Toast.makeText(MainActivity.this, "show your dialog", Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivity.this, "show your dialog", Toast.LENGTH_SHORT).show();
         }
 
         @Override
@@ -89,7 +90,7 @@ public class MainActivity extends Activity
         @Override
         protected void onPostExecute(Integer result)
 		{
-            //Toast.makeText(MainActivity.this, "hide your dialog", Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivity.this, "hide your dialog", Toast.LENGTH_SHORT).show();
 
             if (result == 1) 
 			{
@@ -99,7 +100,7 @@ public class MainActivity extends Activity
 
 			else 
 			{
-                //Toast.makeText(MainActivity.this, "Failed to fetch data!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Failed to fetch data!", Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -126,7 +127,7 @@ public class MainActivity extends Activity
         }
 		catch (JSONException e)
 		{
-			//Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
+			Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
             e.printStackTrace();
         }
     }
