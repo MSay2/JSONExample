@@ -4,6 +4,7 @@ import android.app.*;
 import android.os.*;
 
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -21,8 +22,9 @@ import java.util.List;
 import android.util.Log;
 import android.widget.Toast;
 
-public class MainActivity extends Activity 
+public class MainActivity extends AppCompatActivity 
 {
+	private Toolbar toolbar;
 	private Adapter adapter;
 	private RecyclerView recycler;
 	private List<ItemData> item_data;
@@ -34,6 +36,9 @@ public class MainActivity extends Activity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+		
+		toolbar = (Toolbar)findViewById(R.id.ma_toolbar);
+		setSupportActionBar(toolbar);
 		
 		recycler = (RecyclerView)findViewById(R.id.ma_recyclerView);
 		recycler.setLayoutManager(new LinearLayoutManager(this));
